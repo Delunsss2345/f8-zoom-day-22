@@ -16,6 +16,9 @@ toggleButton.forEach(btn => {
         if(btn.classList.contains('add-btn')) {
             textBox[0].focus()  ;
         }
+        if(btn.classList.contains('cancel-button')) {
+            form.reset() ; 
+        }
     };
 });
 

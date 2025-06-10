@@ -282,8 +282,7 @@ body {
   -webkit-line-clamp:2;
   overflow: hidden;
   text-overflow: ellipsis;
-
-  max-height: calc(1.5 * 2 * 0.875rem); 
+  min-height: calc(1.5 * 2 * 0.875rem); 
 }
 
 .task-time {
