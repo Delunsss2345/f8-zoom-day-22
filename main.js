@@ -105,9 +105,9 @@ function renderTask(task) {
             <i class="fa-solid fa-pen-to-square fa-icon"></i>
             Edit
         </div>
-        <div class="dropdown-item ${task.isCompleted ? 'complete' : ''}" onclick="handlerCompleted(this)">
+        <div class="dropdown-item complete" onclick="handlerCompleted(this)">
             <i class="fa-solid fa-check fa-icon"></i>
-            ${task.isCompleted ? 'Mark as Active' : 'Mark as Complete'}
+            ${taskCard.classList.contains('completed') ? 'Mark as Active' : 'Mark as Complete'}
         </div>
         <div class="dropdown-item delete">
             <i class="fa-solid fa-trash fa-icon"></i>
