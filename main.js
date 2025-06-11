@@ -75,6 +75,14 @@ function validateField(newTask) {
 
 const handlerCompleted = (el) => {
     el.closest('.task-card').classList.toggle('completed');
+    if(el.closest('.task-card').classList.contains('completed')) {
+        el.innerHTML = `<i class="fa-solid fa-check fa-icon"></i>
+            Mark as Active`
+    } 
+    else {
+        el.innerHTML = `<i class="fa-solid fa-check fa-icon"></i>
+            Mark as Complete`
+    }
     console.log(el.closest('.task-card'));
 };
 
@@ -107,7 +115,7 @@ function renderTask(task) {
         </div>
         <div class="dropdown-item complete" onclick="handlerCompleted(this)">
             <i class="fa-solid fa-check fa-icon"></i>
-            ${taskCard.classList.contains('completed') ? 'Mark as Active' : 'Mark as Complete'}
+            Mark as Complete
         </div>
         <div class="dropdown-item delete">
             <i class="fa-solid fa-trash fa-icon"></i>
