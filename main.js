@@ -73,13 +73,15 @@ function validateField(newTask) {
     return true ;
 }
 
-
+const handlerCompleted = (el) => {
+    el.closest('.task-card').classList.toggle('completed');
+    console.log(el.closest('.task-card'));
+};
 
 
 function renderTask(task) {    
     const taskCard = document.createElement('div');
     taskCard.classList.add('task-card');
-    taskCard.dataset.id = task.id; 
 
     taskCard.classList.add(task.cardColor || 'blue');
         
@@ -97,23 +99,25 @@ function renderTask(task) {
     const taskMenuButton = document.createElement('button');
     taskMenuButton.classList.add('task-menu');
     taskMenuButton.innerHTML = `
-            <i class="fa-solid fa-ellipsis fa-icon"></i>
-            <div class="dropdown-menu">
-                <div class="dropdown-item">
-                    <i class="fa-solid fa-pen-to-square fa-icon"></i>
-                    Edit
-                </div>
-                <div class="dropdown-item ${task.isCompleted ? 'complete' : ''}">
-                    <i class="fa-solid fa-check fa-icon"></i>
-                    ${task.isCompleted ? 'Mark as Active' : 'Mark as Complete'}
-                </div>
-                <div class="dropdown-item delete">
-                    <i class="fa-solid fa-trash fa-icon"></i>
-                    Delete
-                </div>
-            </div>
-        `;
+    <i class="fa-solid fa-ellipsis fa-icon"></i>
+    <div class="dropdown-menu">
+        <div class="dropdown-item edit">
+            <i class="fa-solid fa-pen-to-square fa-icon"></i>
+            Edit
+        </div>
+        <div class="dropdown-item ${task.isCompleted ? 'complete' : ''}" onclick="handlerCompleted(this)">
+            <i class="fa-solid fa-check fa-icon"></i>
+            ${task.isCompleted ? 'Mark as Active' : 'Mark as Complete'}
+        </div>
+        <div class="dropdown-item delete">
+            <i class="fa-solid fa-trash fa-icon"></i>
+            Delete
+        </div>
+    </div>
+`;
 
+
+   
     taskHeader.appendChild(taskTitle);
     taskHeader.appendChild(taskMenuButton);
 
